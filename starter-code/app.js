@@ -99,6 +99,7 @@ function sumArray(sumArr) { //eslint-disable-line
 
   var returnArray = [];
   var sumTotal = 0;
+  var sumString = '';
 
   //iterate over the array, add all numbers
   for (var i = 0; i < sumArr.length; i++){
@@ -110,9 +111,18 @@ function sumArray(sumArr) { //eslint-disable-line
       //total equals previous plus current
       sumTotal = sum(sumTotal, sumArr[i])[0];
     } 
-  }
+    //add to final string, but no comma for the last entry
+    if(sumArr.length-1 === i){
+      sumString = sumString.concat(sumArr[i]);
+    }
+    //add to final string with commas
+    else{
+      sumString = sumString.concat(sumArr[i]+',');
+    }
 
-  var sumString = '2,3,4 was passed in as an array of numbers, and 9 is their sum.';
+  }//end for
+
+  sumString = sumString.concat(' was passed in as an array of numbers, and ' + sumTotal + ' is their sum.');
 
   returnArray.push(sumTotal);
   returnArray.push(sumString);
@@ -139,10 +149,43 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 
+  var returnArray = [];
+  var multiTotal = 0;
+  var productString = 'The numbers ';
+
+  //iterate over the array, add all numbers
+  for (var i = 0; i < multArr.length; i++){
+    //protects on first iteration from a NaN condition
+    if (i === 0) {
+      multiTotal = multArr[i];
+    }
+    else{
+      //total equals previous plus current
+      multiTotal = multiply(multiTotal, multArr[i])[0];
+    } 
+
+    //add to final string, but no comma for the last entry
+    if(multArr.length-1 === i){
+      productString = productString.concat(multArr[i]);
+    }
+    //add to final string with commas
+    else{
+      productString = productString.concat(multArr[i]+',');
+    }
+  }//end for
+
+  //24.
+
+  productString = productString.concat(' have a product of ' + multiTotal + '.');
+
+  returnArray.push(multiTotal);
+  returnArray.push(productString);
+
+  return returnArray;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop.
 
