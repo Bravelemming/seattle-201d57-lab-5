@@ -9,8 +9,6 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  console.log('a : ' + a);
-  console.log('b : ' + b);
 
   var total = a + b;
   var message = 'The sum of ' + a + ' and ' + b + ' is ' + total + '.';
@@ -99,11 +97,32 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
 
+  var returnArray = [];
+  var sumTotal = 0;
+
+  //iterate over the array, add all numbers
+  for (var i = 0; i < sumArr.length; i++){
+    //protects on first iteration from a NaN condition
+    if (i === 0) {
+      sumTotal = sumArr[i];
+    }
+    else{
+      //total equals previous plus current
+      sumTotal = sum(sumTotal, sumArr[i])[0];
+    } 
+  }
+
+  var sumString = '2,3,4 was passed in as an array of numbers, and 9 is their sum.';
+
+  returnArray.push(sumTotal);
+  returnArray.push(sumString);
+
+  return returnArray;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
