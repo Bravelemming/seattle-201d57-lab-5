@@ -183,6 +183,7 @@ function multiplyArray(multArr) { //eslint-disable-line
 
   return returnArray;
 }
+//TODO: fix this
 
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyArray(testArray);
