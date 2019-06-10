@@ -148,7 +148,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
+  
   var returnArray = [];
   var multiTotal = 0;
   var productString = 'The numbers ';
@@ -164,7 +164,7 @@ function multiplyArray(multArr) { //eslint-disable-line
       multiTotal = multiply(multiTotal, multArr[i])[0];
     } 
 
-    //add to final string, but no comma for the last entry
+    // add to final string, but no comma for the last entry
     if(multArr.length-1 === i){
       productString = productString.concat(multArr[i]);
     }
@@ -174,8 +174,6 @@ function multiplyArray(multArr) { //eslint-disable-line
     }
   }//end for
 
-  //24.
-
   productString = productString.concat(' have a product of ' + multiTotal + '.');
 
   returnArray.push(multiTotal);
@@ -183,7 +181,6 @@ function multiplyArray(multArr) { //eslint-disable-line
 
   return returnArray;
 }
-//TODO: fix this
 
 // Here is the test for multiplyArray(); uncomment it to run it
 testMultiplyArray(testArray);
